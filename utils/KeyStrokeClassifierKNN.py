@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 class KeyStrokeClassifierKNN:
     """Class used for carrying out classification of test key stroke data.
-    It takes in 3 arguments.
+    It takes in 4 arguments.
     -   The first is the file path to the csv file containing the dataset.
     -   The second id the out of sample test feature to be classified which
         is a comma separated string of all the columns (features).
@@ -27,9 +27,9 @@ class KeyStrokeClassifierKNN:
 
     def fetch_classification(self):
         keystroke_data = pd.read_csv(self.dataset_file_path)
-        data = keystroke_data.iloc[:, 0:38]
+        data = keystroke_data.iloc[:, 0:40]
         le = preprocessing.LabelEncoder()
-        #encoded_value = le.fit_transform(keystroke_data.iloc[:, 38:39])
+        #encoded_value = le.fit_transform(keystroke_data.iloc[:, 40:41])
         target = keystroke_data['CLASS']
         sample_text_row = pd.DataFrame.transpose(pd.DataFrame(self.test_feature_string.split(",")))
 
